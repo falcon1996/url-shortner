@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <font size="6">FUCK microservice</font>
+        <font size="6">FreeCodeCamp API Basejump: URL Shortener Microservice</font>
         <style>
             div {
                 background-color: white;
@@ -15,8 +15,22 @@
     </head>
         <body>
             
-            <div><h2>Example output:</h2>
-            <p>SEXYYYY</p></div>
+            <div><h2>User stories:</h2>
+            <p>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</p>
+            <p>When I visit that shortened URL, it will redirect me to my original link.</p></div>
+            
+            <div><h2>Example creation usage:</h2>
+            <p>https://little-url.herokuapp.com/new/https://www.google.com</p>
+            <p>https://little-url.herokuapp.com/new/http://foo.com:80</p></div>
+            
+            <div><h2>Example creation output:</h2>
+            <p>{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }</p></div>
+            
+            <div><h2>Usage:</h2>
+            <p>https://little-url.herokuapp.com/2871</p></div>
+            
+            <div><h2>Will redirect to:</h2>
+            <p>https://www.google.com/</p></div>
             
         </body>
     

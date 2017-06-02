@@ -12,9 +12,10 @@ app.get('/', function(req, res) {                   //frontend to be done later
 
 var murl = 'mongodb://localhost:27017/url-shortner';
 
-app.get('new/:url', function(req,res){
+app.get('/new/:url(*)', function(req,res){
     
-    if(validUrl.isUri(req.params.url)){
+    var url = req.params.url
+    if(validUrl.isUri(url)){
         
         var newId = shortid.generate();
         mongo.connect(murl,function(err,db){
@@ -22,7 +23,7 @@ app.get('new/:url', function(req,res){
             if(err) throw err;
             
             var collection = db.collect('myList');
-            collection.insert({url:req.params.url, short: newId },function(err, data){
+            collection.insert({url:url, short: newId },function(err, doc){
                 
                 if(err) throw err;
                 
@@ -32,7 +33,7 @@ app.get('new/:url', function(req,res){
                     short_url: 'http://'+req.headers['host']+'/'+newId
                 }
                 
-                res.json(data);
+                res.end(data);
                 db.close();
             })
         })
